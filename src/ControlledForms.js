@@ -31,7 +31,7 @@ class ControlledForm extends React.Component {
     } else {
       errors[e.target.name] = '';
     }
-    this.setState({ errors, [e.target.name]: e.target.value });  //way 1
+    this.setState({ errors, [e.target.name]: e.target.value }); //way 1
     //way2 ; rhis.setState({erros:{firstName:'Required', lastName:'Required'}});
   };
 
@@ -49,6 +49,7 @@ class ControlledForm extends React.Component {
               onChange={(e) => this.handleChange(e)} // replacing "firstName: e.target.value" with "[e.target.name]:e.target.value}"
             />{' '}
             <br /> <br />
+            <span style={{ color: 'red' }}>{this.state.errors.firstName}</span>
           </div>
           <div>
             <label>Last Name</label>
@@ -60,6 +61,7 @@ class ControlledForm extends React.Component {
             />
             <br />
             <br />
+            <span style={{ color: 'red' }}>{this.state.errors.firstName}</span>
           </div>
           <div>
             <label>Email</label>
@@ -71,6 +73,7 @@ class ControlledForm extends React.Component {
             />
             <br />
             <br />
+            <span style={{ color: 'red' }}>{this.state.errors.firstName}</span>
           </div>
           <div>
             <label>Gender</label>
