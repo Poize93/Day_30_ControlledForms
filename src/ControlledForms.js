@@ -21,7 +21,17 @@ class ControlledForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    var errKeys=Object.keys(this.state).filter((key)=>{
+      if(this.state[key]==='' && key!='errors'){
+        return key;
+      }
+    })
+    if(errKeys.length>=1){
+      console.error('Please fill all details')
+    }else{
+      console.log(this.state);
+    }
+    
   };
 
   handleChange = (e) => {
@@ -61,7 +71,7 @@ class ControlledForm extends React.Component {
             />
             <br />
             <br />
-            <span style={{ color: 'red' }}>{this.state.errors.firstName}</span>
+            <span style={{ color: 'red' }}>{this.state.errors.lastName}</span>
           </div>
           <div>
             <label>Email</label>
@@ -73,7 +83,7 @@ class ControlledForm extends React.Component {
             />
             <br />
             <br />
-            <span style={{ color: 'red' }}>{this.state.errors.firstName}</span>
+            <span style={{ color: 'red' }}>{this.state.errors.email}</span>
           </div>
           <div>
             <label>Gender</label>
